@@ -4,7 +4,7 @@
 void GUI::Render()
 {
 	if (bWatermark)
-		showWatermark(bWatermarkFPS, "OmegaWare.xyz (Crush Crush)", ImVec4(255, 255, 255, 255), ImVec4(255, 255, 255, 0));
+		showWatermark(bWatermarkFPS, "OmegaWare.xyz (Blush Blush)", ImVec4(255, 255, 255, 255), ImVec4(255, 255, 255, 0));
 	
 	if (!bMenuOpen)
 		return;
@@ -12,7 +12,7 @@ void GUI::Render()
 	//ImGui::ShowStyleEditor();
 
 	ImGui::SetNextWindowSize(ImVec2(WIDTH, HEIGHT));
-	ImGui::Begin("OmegaWare.xyz (Crush Crush)", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse);
+	ImGui::Begin("OmegaWare.xyz (Blush Blush)", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse);
 
 	//	ImGui::SetCursorPos(ImVec2(6, 20));
 	ImGui::BeginChild("##Cheat", ImVec2(ImGui::GetContentRegionAvail().x / 3, ImGui::GetContentRegionAvail().y), true);
