@@ -1,6 +1,8 @@
 # Blush Blush Cheat
 A cheat made for the Steam version of <a href="https://store.steampowered.com/app/777130/Blush_Blush/">Blush Blush
 
+Check out my cheat for <a href="https://github.com/Omega172/Crush-Crush-Cheat">Crush Crush
+
 # Why?
 Because I made a cheat for Crush Crush, and this games code is mostly the same as Crush Crush
 
