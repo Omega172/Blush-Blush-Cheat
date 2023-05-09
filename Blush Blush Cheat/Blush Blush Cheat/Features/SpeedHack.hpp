@@ -51,7 +51,7 @@ public:
 	{
 		ImGui::BeginChild("##SpeedHack", ImVec2(ImGui::GetContentRegionAvail().x / 3, ImGui::GetContentRegionAvail().y), true);
 		{
-			ImGui::Text("Speed Hack (Time Scale Override)");
+			ImGui::Text("Speed Hack");
 			ImGui::InputFloat("##Set Time Scale", &_timeScale, 0.1f, 1.0f, 1);
 			if (_timeScale < 1.0f)
 				_timeScale = 1.0f;
