@@ -38,6 +38,7 @@
     <ClInclude Include="Features\MiscUnlockers.hpp" />
     <ClInclude Include="Features\PhoneUtils.hpp" />
     <ClInclude Include="Features\Jobs.hpp" />
+    <ClInclude Include="Features\SpeedHack.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EntryPoint.cpp" />

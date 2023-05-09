@@ -1,7 +1,7 @@
 #pragma once
 #define WIN32_LEAN_AND_MEAN
 
-#define VERSION "1.0.0"
+#define VERSION "1.0.1"
 
 #include <Windows.h>
 #include <iostream>
@@ -59,6 +59,8 @@ inline GuyUtils guyUtils;
 inline MiscUnlockers miscUnlockers;
 #include "Features/Jobs.hpp"
 inline Jobs jobs;
+#include "Features/SpeedHack.hpp"
+inline SpeedHack speedHack;
 
 typedef HRESULT(__stdcall* Present) (IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags);
 typedef LRESULT(CALLBACK* WNDPROC)(HWND, UINT, WPARAM, LPARAM);

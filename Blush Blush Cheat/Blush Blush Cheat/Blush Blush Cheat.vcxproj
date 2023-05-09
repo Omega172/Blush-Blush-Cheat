@@ -91,6 +91,7 @@
     <ClInclude Include="Features\Jobs.hpp" />
     <ClInclude Include="Features\MiscUnlockers.hpp" />
     <ClInclude Include="Features\PhoneUtils.hpp" />
+    <ClInclude Include="Features\SpeedHack.hpp" />
     <ClInclude Include="Features\Watermark.hpp" />
     <ClInclude Include="GUI\Custom.hpp" />
     <ClInclude Include="GUI\GUI.hpp" />

@@ -15,7 +15,7 @@ void GUI::Render()
 	ImGui::Begin("OmegaWare.xyz (Blush Blush)", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse);
 
 	//	ImGui::SetCursorPos(ImVec2(6, 20));
-	ImGui::BeginChild("##Cheat", ImVec2(ImGui::GetContentRegionAvail().x / 3, ImGui::GetContentRegionAvail().y), true);
+	ImGui::BeginChild("##Cheat", ImVec2(ImGui::GetContentRegionAvail().x / 3, ImGui::GetContentRegionAvail().y / 2), true);
 	{
 		ImGui::Text("Cheat");
 		
@@ -55,5 +55,14 @@ void GUI::Render()
 	}
 	ImGui::EndChild();
 
+	ImGui::SetCursorPos({ 8, 164 });
+	
+	speedHack.Render();
+
+	/*ImVec2 cursorPos = ImGui::GetCursorPos();
+	std::stringstream ss;
+	ss << "X: " << cursorPos.x << " Y: " << cursorPos.y;
+	Log("CursorPos", ss.str());*/
+	
 	ImGui::End();
 }
