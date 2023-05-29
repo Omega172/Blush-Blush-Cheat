@@ -7,6 +7,7 @@ Check out my cheat for <a href="https://github.com/Omega172/Crush-Crush-Cheat">C
 Because I made a cheat for Crush Crush, and this games code is mostly the same as Crush Crush
 
 # Dependencies
+Mono - https://www.mono-project.com/download/stable/ (Only if you want to compile this yourself)
 Microsoft Visual C++ Redistributable x86 - https://aka.ms/vs/17/release/vc_redist.x86.exe<br>
 Microsoft Visual C++ Redistributable x64 - https://aka.ms/vs/17/release/vc_redist.x64.exe<br>
 DirectX End-User Runtimes (June 2010) - http://www.microsoft.com/en-us/download/confirmation.aspx?id=8109
