@@ -40,6 +40,7 @@ void Init()
 	guyUtils.Create();
 	miscUnlockers.Create();
 	jobs.Create();
+	unlockItems.Create();
 }
 
 DWORD WINAPI MainThread(LPVOID lpReserved)
@@ -64,6 +65,7 @@ DWORD WINAPI MainThread(LPVOID lpReserved)
 	guyUtils.Destroy();
 	miscUnlockers.Destroy();
 	jobs.Destroy();
+	unlockItems.Destroy();
 	
 	MH_Uninitialize();
 

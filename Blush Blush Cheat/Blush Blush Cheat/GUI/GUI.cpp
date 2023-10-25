@@ -52,6 +52,7 @@ void GUI::Render()
 		guyUtils.Render();
 		miscUnlockers.Render();
 		jobs.Render();
+		unlockItems.Render();
 	}
 	ImGui::EndChild();
 

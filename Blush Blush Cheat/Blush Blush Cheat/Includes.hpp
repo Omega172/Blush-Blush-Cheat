@@ -40,8 +40,6 @@ inline bool bExtraDebug = false;
 inline std::string monoDll = "mono-2.0-bdwgc.dll";
 #include "SDK/Mono.hpp"
 #include "SDK/Enums.hpp"
-DEFINE_ENUM_FLAG_OPERATORS(BlayFap::ServerItems);
-inline BlayFap::ServerItems AllServerItems = BlayFap::ServerItems::NSFW | BlayFap::ServerItems::SpeedBoost2 | BlayFap::ServerItems::SpeedBoost4 | BlayFap::ServerItems::SpeedBoost8 | BlayFap::ServerItems::StarterPack | BlayFap::ServerItems::Sven | BlayFap::ServerItems::FullVoices | BlayFap::ServerItems::Cole | BlayFap::ServerItems::NimhKigurumi | BlayFap::ServerItems::VolksKigurumi | BlayFap::ServerItems::KelbyKigurumi | BlayFap::ServerItems::BoxersBundle | BlayFap::ServerItems::HalloweenBundle | BlayFap::ServerItems::KigurumiBundle | BlayFap::ServerItems::NimhButler | BlayFap::ServerItems::VolksButler | BlayFap::ServerItems::Cashew | BlayFap::ServerItems::Poe | BlayFap::ServerItems::ButlerBundle | BlayFap::ServerItems::KelbyButler | BlayFap::ServerItems::EliButler | BlayFap::ServerItems::Seth | BlayFap::ServerItems::SummerBundle | BlayFap::ServerItems::AnonButler | BlayFap::ServerItems::GarretButler | BlayFap::ServerItems::DmitriButler | BlayFap::ServerItems::IchibanButler | BlayFap::ServerItems::WilliamButler | BlayFap::ServerItems::MyxButler | BlayFap::ServerItems::StirlingButler | BlayFap::ServerItems::ScaleButler | BlayFap::ServerItems::Logan;
 
 // Features
 #include "Features/Watermark.hpp"
@@ -61,6 +59,8 @@ inline MiscUnlockers miscUnlockers;
 inline Jobs jobs;
 #include "Features/SpeedHack.hpp"
 inline SpeedHack speedHack;
+#include "Features/UnlockItems.hpp"
+inline UnlockItems unlockItems;
 
 typedef HRESULT(__stdcall* Present) (IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags);
 typedef LRESULT(CALLBACK* WNDPROC)(HWND, UINT, WPARAM, LPARAM);
