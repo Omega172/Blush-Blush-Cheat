@@ -3,6 +3,8 @@ A cheat made for the Steam version of <a href="https://store.steampowered.com/ap
 
 Check out my cheat for <a href="https://github.com/Omega172/Crush-Crush-Cheat">Crush Crush
 
+The key to show/hide the GUI is "Insert"
+
 # Why?
 Because I made a cheat for Crush Crush, and this games code is mostly the same as Crush Crush
 
