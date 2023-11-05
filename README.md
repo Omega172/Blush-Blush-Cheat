@@ -7,9 +7,9 @@ The key to show/hide the GUI is "Insert"
 
 # How to use
 
-    Download and install the dependencies listed in the README, restart PC after installing dependencies.
-    Either compile the DLL or download the compiled one from the releases page.
-    Using a DLL injector of your choice Inject the DLL into BlushBlush.exe
+    1. Download and install the dependencies listed in the README, restart PC after installing dependencies.
+    2. Either compile the DLL or download the compiled one from the releases page.
+    3. Using a DLL injector of your choice Inject the DLL into BlushBlush.exe
 
 For a DLL injector, if you are very new to this I recommend [Process Hacker](https://processhacker.sourceforge.io/)
 
