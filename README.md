@@ -5,6 +5,16 @@ Check out my cheat for <a href="https://github.com/Omega172/Crush-Crush-Cheat">C
 
 The key to show/hide the GUI is "Insert"
 
+# How to use
+
+    Download and install the dependencies listed in the README, restart PC after installing dependencies.
+    Either compile the DLL or download the compiled one from the releases page.
+    Using a DLL injector of your choice Inject the DLL into BlushBlush.exe
+
+For a DLL injector, if you are very new to this I recommend [Process Hacker](https://processhacker.sourceforge.io/)
+
+[How to inject DLL with Process Hacker](https://www.unknowncheats.me/forum/general-programming-and-reversing/378956-process-hacker-2-inject-dll-game.html)
+
 # Why?
 Because I made a cheat for Crush Crush, and this games code is mostly the same as Crush Crush
 
