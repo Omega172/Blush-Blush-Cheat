@@ -25,7 +25,10 @@ namespace Guys
 		Seth,
 		Logan,
 		Reece,
-		MAX = 18
+		Aki,
+		Haru,
+		Fuyu,
+		MAX = 21
 	};
 }
 
