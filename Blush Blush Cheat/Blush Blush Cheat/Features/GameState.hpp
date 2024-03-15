@@ -143,7 +143,10 @@ public:
 		DisableHook(GameState_Quit);
 
 		nsfwToggle = nsfwRestore;
-		*GameState_NFSW = nsfwRestore;
+
+		if (GameState_NFSW)
+			*GameState_NFSW = nsfwRestore;
+
 		std::string state = (nsfwRestore) ? "True" : "False";
 		Log("GameState.NSFW", "GameState.NSFW restored to " + state);
 

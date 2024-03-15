@@ -93,7 +93,7 @@ public:
 		return _instance;
 	}
 
-	void* GetCompiledMethod(const char* className, const char* methodName, int param_count = 0, const char* assemblyName = "Assembly-CSharp")
+	void* GetCompiledMethod(const char* className, const char* methodName, int param_count = 0, const char* assemblyName = ".\\BlushBlush_Data\\Managed\\Assembly-CSharp.dll")
 	{
 		MonoDomain* pDomain = mono_get_root_domain();
 		if (pDomain == nullptr)
@@ -118,7 +118,7 @@ public:
 		return mono_compile_method(pMethod);
 	}
 
-	MonoMethod* GetMethod(const char* className, const char* methodName, int param_count = 0, const char* assemblyName = "Assembly-CSharp", const char* nameSpace = "")
+	MonoMethod* GetMethod(const char* className, const char* methodName, int param_count = 0, const char* assemblyName = ".\\BlushBlush_Data\\Managed\\Assembly-CSharp.dll", const char* nameSpace = "")
 	{
 		MonoDomain* pDomain = mono_get_root_domain();
 		if (pDomain == nullptr)
@@ -139,11 +139,13 @@ public:
 		return mono_class_get_method_from_name(pKlass, methodName, param_count);
 	}
 
-	MonoClass* GetClass(const char* className, const char* assemblyName = "Assembly-CSharp", const char* nameSpace = "")
+	MonoClass* GetClass(const char* className, const char* assemblyName = ".\\BlushBlush_Data\\Managed\\Assembly-CSharp.dll", const char* nameSpace = "")
 	{
 		MonoDomain* pDomain = mono_get_root_domain();
 		if (pDomain == nullptr)
 			return nullptr;
+
+		MonoThread* pThread = mono_thread_attach(pDomain);
 
 		MonoAssembly* pAssembly = mono_domain_assembly_open(pDomain, assemblyName);
 		if (pAssembly == nullptr)
@@ -162,7 +164,7 @@ public:
 		return mono_method_get_class(method);
 	}
 
-	MonoClassField* GetField(const char* className, const char* fieldName, const char* assemblyName = "Assembly-CSharp", const char* nameSpace = "")
+	MonoClassField* GetField(const char* className, const char* fieldName, const char* assemblyName = ".\\BlushBlush_Data\\Managed\\Assembly-CSharp.dll", const char* nameSpace = "")
 	{
 		MonoDomain* pDomain = mono_get_root_domain();
 		if (pDomain == nullptr)
