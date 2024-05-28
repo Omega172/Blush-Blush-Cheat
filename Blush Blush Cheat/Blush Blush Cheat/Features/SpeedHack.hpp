@@ -30,7 +30,7 @@ private:
 
 	void SetTimeScale(float timeScale)
 	{
-		MonoMethod* set_timeScale = Mono::Instance().GetMethod("Time", "set_timeScale", 1, "UnityEngine", "UnityEngine");
+		MonoMethod* set_timeScale = Mono::Instance().GetMethod("Time", "set_timeScale", 1, ".\\BlushBlush_Data\\Managed\\UnityEngine.CoreModule.dll", "UnityEngine");
 		if (set_timeScale == nullptr)
 		{
 			LogError("Time.set_timeScale", "Failed to get method pointer");

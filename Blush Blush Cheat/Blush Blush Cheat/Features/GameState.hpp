@@ -75,9 +75,6 @@ private:
 
 	HOOK_DEF(bool, GameState_SpeedDatingEnabled, (void* __this))
 	{
-		if (bExtraDebug)
-			Log("GameState.SpeedDatingEnabled", "Called");
-
 		if (speedToggle)
 			return true;
 

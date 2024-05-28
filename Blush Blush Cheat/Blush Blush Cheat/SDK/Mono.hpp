@@ -98,6 +98,7 @@ public:
 		MonoDomain* pDomain = mono_get_root_domain();
 		if (pDomain == nullptr)
 			return nullptr;
+		mono_thread_attach(pDomain);
 
 		MonoAssembly* pAssembly = mono_domain_assembly_open(pDomain, assemblyName);
 		if (pAssembly == nullptr)
@@ -123,6 +124,7 @@ public:
 		MonoDomain* pDomain = mono_get_root_domain();
 		if (pDomain == nullptr)
 			return nullptr;
+		mono_thread_attach(pDomain);
 
 		MonoAssembly* pAssembly = mono_domain_assembly_open(pDomain, assemblyName);
 		if (pAssembly == nullptr)
