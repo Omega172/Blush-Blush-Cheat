@@ -1,5 +1,5 @@
 # Note
-> This repo is a Copy & Paste of [OmegaWare (Crush Crush)](github.com/Omega172/Crush-Crush-Cheat) slightly modified to work with Blush Blush <br/>
+> This repo is a Copy & Paste of [OmegaWare (Crush Crush)](https://github.com/Omega172/Crush-Crush-Cheat) slightly modified to work with Blush Blush <br/>
 > There is an issue with a crash upon trying to close the game using the 'X' button or alt+f4, I tried to fix it but I couldn't, and I don't care enough to spend more time on it, just remember to save manually before closing the game.
 
 # Built for BepInEx 6.0.0-be
