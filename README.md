@@ -17,13 +17,13 @@ Then run `dotnet restore` and make any changes you want<br/>
 To build run `dotnet build`
 
 ## Features
-- Unlock All Items & Girls (Now combined into one feature)
+- Unlock All Items & Guys (Now combined into one feature)
 - Show all album pinups
 - Unlock all album date pics
 - Game Speed Slider & Toggle Buttons
 - Add Diamonds
-- Set Current Girl To Lover
-- Set All Girls Lover
+- Set Current Guy To Lover
+- Set All Guys Lover
 - All Phone Conversations Unlocked
 - Enable NSFW
 - Gift quantity override
@@ -32,7 +32,7 @@ To build run `dotnet build`
 - (Thanks to [sliperhr](https://github.com/sliperhr) for the suggestions & [this](https://fearlessrevolution.com/viewtopic.php?f=4&t=8211) post for the methods)
 	- DLC Unlocker
 	- Meet Current Heart Requirement
-	- Meet All Current Girl Requirements (Hearts + Skip To Next Love Level)
+	- Meet All Current Guy Requirements (Hearts + Skip To Next Love Level)
 
 - Disable Analytics (On by default, can only be disabled by editing the config file found in `BepInEx/config/OmegaWare_BlushBlush.cfg`)
 
