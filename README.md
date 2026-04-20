@@ -1,40 +1,51 @@
-# Blush Blush Cheat
-A cheat made for the Steam version of <a href="https://store.steampowered.com/app/777130/Blush_Blush/">Blush Blush
+# This repo is a Copy & Paste of [OmegaWare (Crush Crush)](github.com/Omega172/Crush-Crush-Cheat) slightly modified to work with Blush Blush. <br/>
 
-Check out my cheat for <a href="https://github.com/Omega172/Crush-Crush-Cheat">Crush Crush
+# Built for BepInEx 6.0.0-be
+netstandard.dll: Present <br/>
+Unity: 2022.3.62f2 <br/>
+BepInEx Ver: 6.0.0-be.755 <br/>
 
-The key to show/hide the GUI is "Insert"
+## Building
+Install [.NET 10.0.202 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)<br/>
+Install [BepInEx 6.0.0-be.755](https://builds.bepinex.dev/projects/bepinex_be/755/BepInEx-Unity.Mono-win-x86-6.0.0-be.755%2B3fab71a.zip) into your Blush Blush game directory
 
-# How to use
+OmegaWare-BlushBlush.csproj:
+- Change line 16 to point to `..\YOUR\GAME\DIR\BlushBlush\BlushBlush_Data\Managed`
+- If making a PR, make sure to update the version on line 7
 
-1. Download and install the dependencies listed in the README, restart PC after installing dependencies.
-2. Either compile the DLL or download the compiled one from [Releases](https://github.com/Omega172/Blush-Blush-Cheat/releases/latest).
-3. Using a DLL injector of your choice Inject the DLL into BlushBlush.exe.
+Then run `dotnet restore` and make any changes you want<br/>
+To build run `dotnet build`
 
-For a DLL injector, if you are very new to this I recommend [Process Hacker](https://processhacker.sourceforge.io/)
+## Features
+- Unlock All Items & Girls (Now combined into one feature)
+- Show all album pinups
+- Unlock all album date pics
+- Game Speed Slider & Toggle Buttons
+- Add Diamonds
+- Set Current Girl To Lover
+- Set All Girls Lover
+- All Phone Conversations Unlocked
+- Enable NSFW
+- Gift quantity override
+- Skip Phone Timer & Hotkeys
 
-[How to inject DLL with Process Hacker](https://www.unknowncheats.me/forum/general-programming-and-reversing/378956-process-hacker-2-inject-dll-game.html)
+- (Thanks to [sliperhr](https://github.com/sliperhr) for the suggestions & [this](https://fearlessrevolution.com/viewtopic.php?f=4&t=8211) post for the methods)
+	- DLC Unlocker
+	- Meet Current Heart Requirement
+	- Meet All Current Girl Requirements (Hearts + Skip To Next Love Level)
 
-# Why?
-Because I made a cheat for Crush Crush, and this games code is mostly the same as Crush Crush
+- Disable Analytics (On by default, can only be disabled by editing the config file found in `BepInEx/config/OmegaWare_BlushBlush.cfg`)
 
-# Dependencies
-Mono - https://www.mono-project.com/download/stable/ (Only if you want to compile this yourself)<br>
-Microsoft Visual C++ Redistributable x86 - https://aka.ms/vs/17/release/vc_redist.x86.exe<br>
-Microsoft Visual C++ Redistributable x64 - https://aka.ms/vs/17/release/vc_redist.x64.exe<br>
-DirectX End-User Runtimes (June 2010) - http://www.microsoft.com/en-us/download/confirmation.aspx?id=8109
+- Unlock All Outfits
 
-# Images
-![Picture of Menu](Images/BlushBlush_HbLHFybRhQ.png)
-![Picture of Console](Images/BlushBlush_EIbeo39oHY.png)
+### TODO
+- Outfits Cost 1 Diamond
+- Gifts Cost No Diamonds
+- Free Diamond Purchasables
+- Max Hobby Level
+- No Job Cooldown
+- Max Highlighted Job Experience
 
-# Features
-<li  class="has-line-data"  data-line-start="8"  data-line-end="9">An in-game menu created by hooking the games Direct-X 11 with Keiro and using Dear-ImGui to render</li>
-
-<li  class="has-line-data"  data-line-start="9"  data-line-end="10">The ability to unload the DLL at anytime to resume normal game function</li>
-
-<li  class="has-line-data"  data-line-start="10"  data-line-end="11">A console attached to the game used for outputting debug information and hook status with a button to enable and disable it</li>
-
-<li  class="has-line-data"  data-line-start="11"  data-line-end="12">A simple watermark in the top right corner that displays the cheat’s title and the current FPS</li>
-
-<li  class="has-line-data"  data-line-start="12"  data-line-end="14">Hooks for many of the games internal functions using MinHook</li>
+## Images
+Menu <br/>
+![Menu](Images/Menu.png)

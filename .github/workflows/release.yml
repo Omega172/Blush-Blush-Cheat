@@ -1,0 +1,106 @@
+name: Build and Release Plugin
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag in format <game ver>,<cheat ver> (example: 0.412,1.1.0)"
+        required: true
+        type: string
+      managed_dlls_zip_url:
+        description: "URL to ZIP file containing all managed DLLs (Assembly-CSharp.dll, com.rlabrecque.steamworks.net.dll, etc.)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore Blush-Blush-Cheat.sln
+
+      - name: Download and Extract Managed DLLs
+        id: dlls
+        shell: pwsh
+        run: |
+          $zipPath = Join-Path $env:RUNNER_TEMP "managed-dlls.zip"
+          $extractPath = Join-Path $env:RUNNER_TEMP "managed-dlls"
+          Invoke-WebRequest -Uri "${{ inputs.managed_dlls_zip_url }}" -OutFile $zipPath
+          if (!(Test-Path $zipPath)) {
+            throw "Failed to download managed DLLs ZIP"
+          }
+          Expand-Archive -Path $zipPath -DestinationPath $extractPath
+          if (!(Test-Path $extractPath)) {
+            throw "Failed to extract managed DLLs"
+          }
+          
+          # Check if DLLs are in root of extracted folder
+          $dllsInRoot = @(Get-ChildItem -Path $extractPath -Filter "*.dll" -File)
+          if ($dllsInRoot.Count -gt 0) {
+            "managed_dlls_path=$extractPath" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+            Write-Host "Found DLLs in root: $($dllsInRoot.Count) files"
+          } else {
+            # Check if DLLs are in a Managed subfolder
+            $managedPath = Join-Path $extractPath "Managed"
+            $dllsInManaged = @(Get-ChildItem -Path $managedPath -Filter "*.dll" -File -ErrorAction SilentlyContinue)
+            if ($dllsInManaged.Count -gt 0) {
+              "managed_dlls_path=$managedPath" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+              Write-Host "Found DLLs in Managed subfolder: $($dllsInManaged.Count) files"
+            } else {
+              throw "No DLL files found in ZIP (checked root and Managed folder)"
+            }
+          }
+
+      - name: Build project
+        run: dotnet build OmegaWare-BlushBlush/OmegaWare-BlushBlush.csproj --configuration Release --no-restore -p:ManagedAssembliesPath="${{ steps.dlls.outputs.managed_dlls_path }}"
+
+      - name: Parse Release Tag
+        id: parsed_tag
+        shell: pwsh
+        run: |
+          $rawTag = "${{ inputs.tag }}"
+          $parts = $rawTag.Split(',', 2)
+          if ($parts.Count -ne 2 -or [string]::IsNullOrWhiteSpace($parts[0]) -or [string]::IsNullOrWhiteSpace($parts[1])) {
+            throw "Invalid tag format. Expected: <game ver>,<cheat ver>"
+          }
+
+          $gameVer = $parts[0].Trim()
+          $cheatVer = $parts[1].Trim()
+
+          "game_ver=$gameVer" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          "cheat_ver=$cheatVer" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
+      - name: Find built plugin DLL
+        id: artifact
+        shell: pwsh
+        run: |
+          $dll = Get-ChildItem "OmegaWare-BlushBlush/bin/Release/netstandard2.0" -Filter "OmegaWare*.dll" -File | Select-Object -First 1
+          if (-not $dll) {
+            throw "No plugin DLL found in OmegaWare-BlushBlush/bin/Release/netstandard2.0"
+          }
+          "dll_path=$($dll.FullName)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag }}
+          name: "Game Ver: ${{ steps.parsed_tag.outputs.game_ver }} | Plugin Ver: ${{ steps.parsed_tag.outputs.cheat_ver }}"
+          body: |
+            Guide to install BepInEx can be found [here](docs.bepinex.dev/master/articles/user_guide/installation/index.html)
+            You need [this](https://builds.bepinex.dev/projects/bepinex_be/755/BepInEx-Unity.Mono-win-x86-6.0.0-be.755%2B3fab71a.zip) version of BepInEx
+            After BepInEx is installed put the DLL in the BepInEx plugins folder.
+          generate_release_notes: true
+          files: |
+            ${{ steps.artifact.outputs.dll_path }}

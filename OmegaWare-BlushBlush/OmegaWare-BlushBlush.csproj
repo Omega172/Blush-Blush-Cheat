@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>OmegaWare_BlushBlush</AssemblyName>
+    <Product>OmegaWare (Blush Blush)</Product>
+    <Version>1.1.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>OmegaWare_BlushBlush</RootNamespace>
+    <ManagedAssembliesPath Condition="'$(ManagedAssembliesPath)' == ''">D:\SteamLibrary\steamapps\common\BlushBlush\BlushBlush_Data\Managed</ManagedAssembliesPath>
+    <AssemblyCSharpHintPath Condition="'$(AssemblyCSharpHintPath)' == ''">$(ManagedAssembliesPath)\Assembly-CSharp.dll</AssemblyCSharpHintPath>
+    <SteamworksNetHintPath Condition="'$(SteamworksNetHintPath)' == ''">$(ManagedAssembliesPath)\com.rlabrecque.steamworks.net.dll</SteamworksNetHintPath>
+    <UnityEngineUIHintPath Condition="'$(UnityEngineUIHintPath)' == ''">$(ManagedAssembliesPath)\UnityEngine.UI.dll</UnityEngineUIHintPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Unity.Mono" Version="6.0.0-be.*" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+	<PackageReference Include="UnityEngine.Modules" Version="2022.3.62" IncludeAssets="compile" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(AssemblyCSharpHintPath)</HintPath>
+    </Reference>
+    <Reference Include="com.rlabrecque.steamworks.net">
+      <HintPath>$(SteamworksNetHintPath)</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(UnityEngineUIHintPath)</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <DeployPath Condition="'$(DeployPath)' == ''">D:\SteamLibrary\steamapps\common\BlushBlush\BepInEx\plugins</DeployPath>
+  </PropertyGroup>
+
+  <Target Name="DeployToGame" AfterTargets="Build" Condition="Exists('$(DeployPath)')">
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(DeployPath)" />
+  </Target>
+</Project>
