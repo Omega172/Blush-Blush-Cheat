@@ -86,9 +86,9 @@ jobs:
         id: artifact
         shell: pwsh
         run: |
-          $dll = Get-ChildItem "OmegaWare-BlushBlush/bin/Release/netstandard2.0" -Filter "OmegaWare*.dll" -File | Select-Object -First 1
+          $dll = Get-ChildItem "OmegaWare-BlushBlush/bin/Release/netstandard2.1" -Filter "OmegaWare*.dll" -File | Select-Object -First 1
           if (-not $dll) {
-            throw "No plugin DLL found in OmegaWare-BlushBlush/bin/Release/netstandard2.0"
+            throw "No plugin DLL found in OmegaWare-BlushBlush/bin/Release/netstandard2.1"
           }
           "dll_path=$($dll.FullName)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
