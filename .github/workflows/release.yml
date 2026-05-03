@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Release tag in format <game ver>,<cheat ver> (example: 0.412,1.1.0)"
+        description: "Release tag in format <game ver>,<cheat ver> (example: V.0.128,1.0.2)"
         required: true
         type: string
       managed_dlls_zip_url:
